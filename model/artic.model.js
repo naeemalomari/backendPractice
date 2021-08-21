@@ -7,7 +7,7 @@ class ArticModel {
 
         this.title = data.title
         this.thumbnail = data.thumbnail;
-        this.artistName= data.artist_title;
+        this.artistName = data.artist_title;
         this.description = data.credit_line;
     }
 }

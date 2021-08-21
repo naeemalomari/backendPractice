@@ -1,18 +1,18 @@
 'use strict';
 
 const superagent = require('superagent');
-const ArticModel=require('../model/artic.model');
+const ArticModel = require('../model/artic.model');
 const getArtData = async (req, res) => {
     const url = `https://api.artic.edu/api/v1/artworks`;
     superagent.get(url)
         .then(data => {
 
-            const responseData=data.body.data.map(art =>{
+            const responseData = data.body.data.map(art => {
 
-return new ArticModel(art);
+                return new ArticModel(art);
 
             })
-res.send(responseData);
+            res.send(responseData);
 
         })
         .catch(err => {
@@ -22,7 +22,6 @@ res.send(responseData);
             console.log('==============================');
         })
 }
-
 
 module.exports = {
     getArtData,
