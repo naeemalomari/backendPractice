@@ -1,7 +1,7 @@
 'use strict';
-
-
 const artPiece = require('../model/artic.mongoose.model');
+
+
 
 const createFavoriteArtPiece = async (req, res) => {
     const {
@@ -27,17 +27,14 @@ const createFavoriteArtPiece = async (req, res) => {
         }
     })
 };
-
 const getFavoriteArtPiece = async (req, res) => {
     artPiece.find({}, (error, data) => {
         res.send(data);
     });
 };
-
 const deleteFavoriteArtPiece = async (req, res) => {
     const slug = req.params.slug
-
-    artPiece.remove({ slug: slug }, (error, data) => {
+    artPiece.deleteOne({ slug: slug }, (error, data) => {
         if (error) {
             res.send(error);
         } else {
@@ -49,7 +46,6 @@ const updateFavoriteArtPiece = async (req, res) => {
     const { description } = req.body;
     const slug = req.params.slug;
     artPiece.find({ slug: slug }, (error, data) => {
-
         if (error) {
             res.send(error);
         } else {
@@ -63,6 +59,5 @@ module.exports = {
     createFavoriteArtPiece,
     getFavoriteArtPiece,
     deleteFavoriteArtPiece,
-    updateFavoriteArtPiece
-
+    updateFavoriteArtPiece,
 }
