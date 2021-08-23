@@ -44,6 +44,7 @@ const deleteFavoriteArtPiece = async (req, res) => {
 }
 const updateFavoriteArtPiece = async (req, res) => {
     const { description } = req.body;
+    console.log(description);
     const slug = req.params.slug;
     artPiece.find({ slug: slug }, (error, data) => {
         if (error) {

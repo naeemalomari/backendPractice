@@ -29,24 +29,23 @@ app.get('/art', articController.getArtData)
 app.get('/', (req, res) => {
     res.send('server is working FINE!!')
 })
-//////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //http://localhost:8080/art/favorite
 app.post('/art/favorite', crud.createFavoriteArtPiece);
 
 //http://localhost:8080/art/favorite
-app.get('art/favorite', crud.getFavoriteArtPiece);
+app.get('/art/favorite', crud.getFavoriteArtPiece);
 
 //http://localhost:8080/art/favorite/:slug
-
 app.delete('/art/favorite/:slug', crud.deleteFavoriteArtPiece);
 
 //http://localhost:8080/art/favorite/:slug
-app.put('art/favorite/:slug' , crud.updateFavoriteArtPiece);
+app.put('/art/favorite/:slug', crud.updateFavoriteArtPiece);
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.listen(PORT, () => {
     console.log(`server is listening to ${PORT}`)
